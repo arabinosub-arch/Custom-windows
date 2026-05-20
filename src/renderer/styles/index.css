@@ -1,0 +1,27 @@
+:root {
+  --primary-color: #0078d4;
+  --secondary-color: #50e6ff;
+  --background: #ffffff;
+  --surface: #f3f3f3;
+  --text: #323232;
+  --text-secondary: #737373;
+  --border: #d0d0d0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: var(--text);
+  user-select: none;
+}
+
+#root {
+  width: 100vw;
+  height: 100vh;
+}

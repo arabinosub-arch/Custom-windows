@@ -1,0 +1,67 @@
+.window {
+  position: absolute;
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  cursor: default;
+}
+
+.window-header {
+  background: linear-gradient(to right, #0078d4, #0063b1);
+  color: white;
+  padding: 8px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: move;
+  user-select: none;
+  border-radius: 2px 2px 0 0;
+}
+
+.window-title {
+  font-size: 14px;
+  font-weight: 500;
+  flex: 1;
+}
+
+.window-controls {
+  display: flex;
+  gap: 8px;
+}
+
+.window-controls button {
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: transparent;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 2px;
+  transition: background-color 0.2s;
+}
+
+.window-controls button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.btn-close:hover {
+  background-color: #e81123;
+}
+
+.window-content {
+  flex: 1;
+  padding: 16px;
+  overflow: auto;
+  font-size: 14px;
+}
+
+.window-content p {
+  margin-bottom: 12px;
+}
