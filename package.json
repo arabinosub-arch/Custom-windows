@@ -1,0 +1,94 @@
+{
+  "name": "custom-windows",
+  "version": "0.1.0",
+  "description": "A cross-platform Windows-like operating system UI built with Electron and React",
+  "main": "dist/main/index.js",
+  "homepage": "./",
+  "author": "arabinosub-arch",
+  "license": "MIT",
+  "scripts": {
+    "dev": "concurrently \"npm run dev:react\" \"npm run dev:electron\"",
+    "dev:react": "react-scripts start",
+    "dev:electron": "wait-on http://localhost:3000 && electron .",
+    "build": "react-scripts build",
+    "build:electron": "tsc src/main/index.ts --outDir dist/main",
+    "build:windows": "npm run build && npm run build:electron && electron-builder --win",
+    "build:linux": "npm run build && npm run build:electron && electron-builder --linux",
+    "build:macos": "npm run build && npm run build:electron && electron-builder --mac",
+    "build:all": "npm run build && npm run build:electron && electron-builder -mwl",
+    "start": "electron .",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "lint": "eslint src --ext .ts,.tsx",
+    "format": "prettier --write \"src/**/*.{ts,tsx,css}\""
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "electron-squirrel-startup": "^1.1.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "@typescript-eslint/parser": "^5.0.0",
+    "concurrently": "^7.0.0",
+    "electron": "^latest",
+    "electron-builder": "^latest",
+    "eslint": "^8.0.0",
+    "prettier": "^2.8.0",
+    "react-scripts": "5.0.0",
+    "typescript": "^4.9.0",
+    "wait-on": "^6.0.0"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "build": {
+    "appId": "com.custom-windows.app",
+    "productName": "Custom Windows",
+    "files": [
+      "build/**/*",
+      "dist/**/*",
+      "package.json"
+    ],
+    "directories": {
+      "buildResources": "public"
+    },
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ],
+      "certificateFile": null,
+      "certificatePassword": null
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ],
+      "category": "Utility"
+    },
+    "mac": {
+      "target": [
+        "dmg",
+        "zip"
+      ],
+      "category": "public.app-category.utilities"
+    }
+  }
+}
